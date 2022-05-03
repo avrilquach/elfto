@@ -1,0 +1,480 @@
+#page {
+  overflow-x: auto;
+}
+
+#globalHeader {
+  position: relative;
+  width: 100%;
+  min-width: 100%;
+  height: 100vh;
+
+  #videoArea {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    overflow: hidden;
+  }
+
+  #video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 177.77777778vh;
+    /* 16:9 → 16 ÷ 9＝ 177.77% */
+    height: 56.25vw;
+    /* 16:9 → 9 ÷ 16 = 56.25% */
+    min-height: 100%;
+    min-width: 100%;
+  }
+  .logo {
+    position: absolute;
+    width: 105px;
+    top: 26px;
+    left: 27px;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .gnav {
+    position: fixed;
+    top: 33px;
+    right: 0 !important;
+    opacity: 1;
+
+    ul {
+      display: flex;
+      display: -ms-flex;
+      display: -webkit-flex;
+
+      li {
+        list-style: none;
+        font-weight: 400;
+        font-style: normal;
+        letter-spacing: 0.05em;
+        margin-right: 30px;
+
+        a {
+          text-decoration: none;
+          color: #fff;
+
+          &:hover {
+            color: #004491;
+          }
+        }
+
+        &:last-child {
+          margin-right: 0;
+          width: 170px;
+          height: 90px;
+          box-sizing: border-box;
+          line-height: 90px;
+          margin-top: -33px;
+          transition: .5s;
+
+          a {
+            position: relative;
+            display: block;
+            background: #1b2025;
+            padding-left: 43px;
+            -webkit-transition: .5s;
+            -moz-transition: .5s;
+            -o-transition: .5s;
+
+            &::after {
+              content: url("../../assets/image/mail_icon.png");
+              position: absolute;
+              top: 1px;
+              margin-left: 13px;
+            }
+
+            &:hover {
+              background: #004491;
+              color: white;
+            }
+          }
+        }
+      }
+    }
+
+    &.hide {
+      animation: UpAnime 0.5s forwards;
+    }
+  }
+
+  .copy {
+    animation: shrinkAnime 1.2s;
+    transition-timing-function: ease-in-out;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+    position: absolute;
+    left: 95px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+
+  .scrolldown_wrap {
+    position: absolute;
+    left: 48px;
+    bottom: 0;
+    z-index: 10;
+  }
+
+  .scrolldown_base {
+    position: relative;
+    width: 1px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.5);
+
+    /*高さ・位置・透過が変化して線が上から下に動く*/
+
+    .scrolldown1 {
+      position: absolute;
+      width: 1px;
+      background: white;
+      animation: pathmove 2s ease-in-out infinite;
+      opacity: 0;
+      top: 0;
+    }
+  }
+}
+
+@keyframes UpAnime {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+}
+
+@keyframes shrinkAnime {
+  0% {
+    opacity: 0;
+    transform: scale(1.1) translateY(-50%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(-50%);
+  }
+}
+
+@keyframes pathmove {
+  0% {
+    height: 0;
+    top: 0;
+    opacity: 1;
+  }
+
+  50% {
+    height: 22px;
+    opacity: 1;
+  }
+
+  100% {
+    height: 0;
+    top: 80px;
+    opacity: 1;
+  }
+}
+
+.sp_menu {
+  display: none;
+}
+@media screen and (max-width: 767px) {
+  #globalHeader {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: available;
+    .logo {
+      position: absolute;
+      top: 25px;
+      left: 15px;
+      width: 25vw;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .gnav {
+      display: none;
+    }
+
+    .sp_menu {
+      display: block;
+
+      .logo {
+        display: none;
+      }
+    }
+
+    #s_nav {
+      position: fixed;
+      z-index: 999;
+      top: -120%;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: #edf4f8;
+      transition: all 0.8s;
+      opacity: 0;
+      &.panelactive {
+        top: 0;
+        opacity: 1;
+        #s_nav_list {
+          position: fixed;
+          z-index: 999;
+          width: 100%;
+          height: 100vh;
+          overflow: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+      }
+
+      ul {
+        z-index: 999;
+        width: 85vw;
+        margin: 216px auto 0 auto;
+        display: block;
+        color: #fff;
+      }
+
+      li {
+        list-style: none;
+        margin-bottom: 7px;
+        text-align: right;
+
+        a {
+          color: #1b2025;
+          text-decoration: none;
+          display: block;
+          font-weight: 400;
+          font-style: normal;
+          font-size: 1.4rem;
+          letter-spacing: 0.1em;
+        }
+
+        &:last-child {
+          width: 100%;
+          height: 68px;
+          box-sizing: border-box;
+          line-height: 68px;
+          margin-top: 33px;
+          text-align: center;
+          background: #1b2025;
+
+          a {
+            position: relative;
+            display: block;
+            font-size: 1.2rem;
+            color: #fff;
+            transform: translateX(-9px);
+
+            &::after {
+              content: url("../../assets/image/mail_icon_sp.png");
+              position: absolute;
+              top: 1px;
+              margin-left: 6px;
+            }
+          }
+        }
+      }
+    }
+
+    #gs-nav li a:hover {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .openbtn {
+      position: fixed;
+      z-index: 9999;
+
+      /*ボタンを最前面に*/
+      top: 0;
+      right: 5px;
+      cursor: pointer;
+      width: 45px;
+      height: 45px;
+      text-align: center;
+
+      .menu {
+        position: fixed;
+        font-size: 1.1rem;
+        color: #fff;
+        font-weight: 400;
+        font-style: normal;
+        letter-spacing: 0.05em;
+        top: 37px;
+        right: 18px;
+      }
+
+      .close {
+        display: none;
+      }
+
+      &.black .menu {
+        color: #1b2025;
+      }
+
+      &.active {
+        .menu {
+          display: none;
+        }
+
+        .close {
+          display: block;
+          position: fixed;
+          font-size: 1.1rem;
+          color: #1b2025;
+          font-weight: 400;
+          font-style: normal;
+          letter-spacing: 0.05em;
+          top: 37px;
+          right: 18px;
+        }
+
+        .logo {
+          display: block;
+          position: fixed;
+          top: 25px;
+          left: 15px;
+          width: 25vw;
+          z-index: 1000;
+
+          img {
+            width: 100%;
+            height: auto;
+          }
+        }
+      }
+
+      span {
+        display: inline-block;
+        transition: all .4s;
+        position: absolute;
+        left: 0;
+        height: 1px;
+        background: #fff;
+        width: 35px;
+      }
+
+      &.black span {
+        background: #1b2025;
+      }
+
+      span {
+        &:nth-of-type(1) {
+          top: 29px;
+        }
+
+        &:nth-of-type(2) {
+          top: 35px;
+        }
+      }
+
+      &.active span {
+        &:nth-of-type(1) {
+          top: 26px;
+          transform: translateY(3px) rotate(-15deg);
+          width: 35px;
+          background: #1b2025;
+        }
+
+        &:nth-of-type(2) {
+          top: 32px;
+          transform: translateY(-3px) rotate(15deg);
+          width: 35px;
+          background: #1b2025;
+        }
+      }
+    }
+
+    .copy {
+      animation: shrinkAnime 1.2s;
+      transition-timing-function: ease-in-out;
+      animation-delay: 0.5s;
+      animation-fill-mode: forwards;
+      position: absolute;
+      left: 50%;
+      top: 46%;
+      transform: translate(-50%, -50%);
+      width: 68vw;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .scrolldown_wrap {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 50px;
+    }
+
+    .scrolldown_base {
+      position: relative;
+      width: 1px;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.5);
+
+      /*高さ・位置・透過が変化して線が上から下に動く*/
+
+      .scrolldown1 {
+        position: absolute;
+        width: 1px;
+        background: white;
+        animation: pathmove 2s ease-in-out infinite;
+        opacity: 0;
+        top: 0;
+      }
+    }
+  }
+
+  @keyframes shrinkAnime {
+    0% {
+      opacity: 0;
+      left: 55%;
+      transform: scale(1.1) translate(-50%, -50%);
+    }
+
+    100% {
+      opacity: 1;
+      left: 50%;
+      transform: scale(1) translate(-50%, -50%);
+    }
+  }
+
+  @keyframes pathmove {
+    0% {
+      height: 0;
+      top: 0;
+      opacity: 1;
+    }
+
+    50% {
+      height: 20px;
+      opacity: 1;
+    }
+
+    100% {
+      height: 0;
+      top: 60px;
+      opacity: 1;
+    }
+  }
+}
