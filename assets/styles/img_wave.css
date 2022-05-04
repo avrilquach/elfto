@@ -1,0 +1,22 @@
+#img_wave_top-1 {
+    position: absolute;
+    left: 60px;
+}
+
+#img_wave_top-2 {
+    position: absolute;
+    top: 378px;
+}
+
+#img_wave_top-1_sp {
+    position: absolute;
+    top: -3px;
+    left: 0px;
+    z-index: 0;
+}
+
+#img_wave_top-2_sp {
+    position: absolute;
+    top: 130px;
+    right: 27px;
+}

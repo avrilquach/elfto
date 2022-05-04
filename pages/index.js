@@ -1,7 +1,14 @@
 import Head from 'next/head'
 import HeaderBlock from "../components/blocks/header"
-
+import ContentBlock from "../components/blocks/content"
+import {useEffect, useState} from "react";
 export default function Home() {
+  const [scroll, setScroll] = useState(false);
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setScroll(window.scrollY > 100)
+    })
+  }, [])
   return (
     <>
       <Head>
@@ -11,7 +18,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div id="page">
-        <HeaderBlock />
+        <HeaderBlock scroll={scroll}/>
+        <ContentBlock scroll={scroll}/>
       </div>
     </>
   )

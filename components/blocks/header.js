@@ -4,8 +4,9 @@ import logo from '../../assets/image/logo.png';
 import copy from '../../assets/image/copy.png';
 import styles from  "../../assets/styles/header.module.scss";
 
-export default function Header() {
+export default function Header(props) {
 	const video = '../video.mp4';
+	const {scroll} = {...props}
 	return (
 		<header id={styles.globalHeader}>
 			<div id={styles.videoArea}>
@@ -17,11 +18,12 @@ export default function Header() {
 						<Image
 							src={logo}
 							alt="React Business Template with Next Js"
+							layout="raw"
 						/>
 					</a>
 				</Link>
 			</h1>
-			<nav className={styles.gnav}>
+			<nav className={scroll ? `${styles.gnav} ${styles.hide}`  : styles.gnav}>
 				<ul>
 					<li>
 						<Link href="/" passHref>
@@ -58,6 +60,7 @@ export default function Header() {
 								<Image
 									src={logo}
 									alt="React Business Template with Next Js"
+									layout="raw"
 								/>
 							</a>
 						</Link>
@@ -102,7 +105,13 @@ export default function Header() {
 				<Image
 					src={copy}
 					alt=""
+					layout="raw"
 				/>
+			</div>
+			<div className={styles.scrolldown_wrap}>
+				<div className={styles.scrolldown_base}>
+					<div className={styles.scrolldown1}></div>
+				</div>
 			</div>
 		</header>
 	)

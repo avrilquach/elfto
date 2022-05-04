@@ -1,7 +1,6 @@
-#page {
-  overflow-x: auto;
-}
-
+/* ===================================================================
+ Header
+=================================================================== */
 #globalHeader {
   position: relative;
   width: 100%;
@@ -131,9 +130,6 @@
     width: 1px;
     height: 80px;
     background: rgba(255, 255, 255, 0.5);
-
-    /*高さ・位置・透過が変化して線が上から下に動く*/
-
     .scrolldown1 {
       position: absolute;
       width: 1px;
@@ -200,9 +196,8 @@
     .logo {
       position: absolute;
       top: 25px;
-      left: 15px;
+      left: 0px;
       width: 25vw;
-
       img {
         width: 100%;
         height: auto;
@@ -301,8 +296,6 @@
     .openbtn {
       position: fixed;
       z-index: 9999;
-
-      /*ボタンを最前面に*/
       top: 0;
       right: 5px;
       cursor: pointer;
@@ -319,6 +312,7 @@
         letter-spacing: 0.05em;
         top: 37px;
         right: 18px;
+        font-size: 0.7rem;
       }
 
       .close {
@@ -431,9 +425,6 @@
       width: 1px;
       height: 60px;
       background: rgba(255, 255, 255, 0.5);
-
-      /*高さ・位置・透過が変化して線が上から下に動く*/
-
       .scrolldown1 {
         position: absolute;
         width: 1px;

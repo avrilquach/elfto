@@ -1,0 +1,92 @@
+/* ===================================================================
+ Content
+=================================================================== */
+.change_nav_wrap {
+  margin-top: 35px;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.change_nav_wrap__inner {
+  display: flex;
+  display: -ms-flex;
+  display: -webkit-flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+
+  .logo {
+    width: 105px;
+    margin-top: -6px;
+    margin-left: 27px;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .change_nav ul {
+    display: flex;
+    display: -ms-flex;
+    display: -webkit-flex;
+
+    li {
+      list-style: none;
+      font-weight: 400;
+      font-style: normal;
+      letter-spacing: 0.05em;
+      margin-right: 30px;
+
+      a {
+        text-decoration: none;
+        color: #1b2025;
+
+        &:hover {
+          color: #004491;
+        }
+      }
+
+      &:last-child {
+        margin-right: 0;
+        width: 170px;
+        height: 90px;
+        box-sizing: border-box;
+        line-height: 90px;
+        margin-top: -33px;
+
+        a {
+          position: relative;
+          display: block;
+          background: #1b2025;
+          padding-left: 43px;
+          color: #fff;
+
+          &::after {
+            content: url("../../assets/image/mail_icon.png");
+            position: absolute;
+            top: 1px;
+            margin-left: 13px;
+          }
+
+          &:hover {
+            background: #004491;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+
+.change_nav_wrap.fixed {
+  position: fixed;
+  top: -2px;
+  z-index: 100;
+  opacity: 1;
+}
+
+.change_nav_wrap_sp {
+  display: none;
+}
