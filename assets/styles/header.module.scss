@@ -302,10 +302,8 @@
       width: 45px;
       height: 45px;
       text-align: center;
-
       .menu {
         position: fixed;
-        font-size: 1.1rem;
         color: #fff;
         font-weight: 400;
         font-style: normal;
@@ -466,6 +464,28 @@
       height: 0;
       top: 60px;
       opacity: 1;
+    }
+  }
+  .change_nav_wrap {
+    display: none;
+  }
+  .change_nav_wrap_sp {
+    display: none;
+  }
+  .change_nav_wrap_sp
+    &.fixed {
+      display: block;
+      .logo {
+        display: block;
+        position: fixed;
+        top: 25px;
+        left: 15px;
+        width: 25vw;
+        z-index: 1000;
+        img{
+          width: 100%;
+          height: auto;
+        }
     }
   }
 }
